@@ -1,32 +1,26 @@
 #include "lists.h"
-#include <stdio.h>
 
 /**
-  * check_cycle - Checks if a singly linked list has a cycle in it
-  * @list: The singly linked list to check
-  *
-  * Return: 1 if has a cycle in it or 0 if not
-  */
+ * check_cycle - checks if a singly linked list has a cycle in it
+ * @list: pointer to the head of the list
+ * Return: 0 if there is no cycle, 1 if there is a cycle
+ */
 int check_cycle(listint_t *list)
 {
-	listint_t *rabbit = list, *dog = list;
-	int found = 0;
+    listint_t *rat = list;
+    listint_t *mouse = list;
 
-	while ((rabbit && dog) && dog ->next)
-	{		
-		rabbit = rabbit->next;
+    if (list == NULL)
+        return (0);
 
-		if (dog->next || dog->next->next)	
-			dog = dog->next->next;
-		else
-			break;
+    while (rat && mouse && mouse->next)
+    {
+        rat = rat->next;
+        mouse = mouse->next->next;
 
-		if (rabbit == dog)
-		{
-			found = 1;
-			break;
-		}
-	}
+        if (rat == mouse)
+            return (1);
+    }
 
-	return (found);
-}i
+    return (0);
+}
