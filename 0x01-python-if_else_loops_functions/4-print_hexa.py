@@ -1,3 +1,6 @@
 #!/usr/bin/python3
-for Number in range(0, 99):
-    print('{} = 0x{:x}'.format(number, number))
+for number in range(0, 100):
+    if number == 99:
+        print("{}".format(number))
+    else:
+        print("{:02}".format(number), end=", ")
