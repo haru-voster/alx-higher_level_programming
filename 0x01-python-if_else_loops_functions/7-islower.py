@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#haroun- harounbravo2@gmail.com
+# haroun- harounbravo2@gmail.com
 def islower(c):
     """Function checks for lowercase characters."""
     if ord(c) >= 97 and ord(c) <= 122:
