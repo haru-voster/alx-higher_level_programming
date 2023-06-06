@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-for i in range(order('a'), order('z') + 1):
-    if char(i) != 'o' and char(i) != 'u':
-        print('{:c}'.format(i), end='')
+for letter in range(97, 123):
+    if chr(letter) is not 'q' and chr(letter) is not 'e':
+        print("{}".format(chr(letter)), end="")
