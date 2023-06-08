@@ -1,4 +1,4 @@
-#!/usr/bash/python3
+#!/usr/bin/python3
 """addition operation"""
 if __name__ == "__name__":
     from add_0 import add
