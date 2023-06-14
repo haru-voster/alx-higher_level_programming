@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <Python.h>
-
+# haru-voster
 void print_python_bytes(PyObject *p)
 {
 	char *str;
-	Py_ssize_t length, i;
+	Py_ssize_t length, a;
 
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
@@ -19,15 +19,15 @@ void print_python_bytes(PyObject *p)
 		else
 			length++;
 		printf("  first %lu bytes: ", length);
-		for (i = 0; i < length - 1; i++)
-			printf("%02x ", str[i] & 0xff);
+		for (a = 0; a < length - 1; a++)
+			printf("%02x ", str[a] & 0xff);
 		printf("%02x\n", str[length - 1] & 0xff);
 	}
 }
 
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t i;
+	Py_ssize_t a;
 	PyObject *list;
 
 	if (PyList_Check(p))
@@ -35,10 +35,10 @@ void print_python_list(PyObject *p)
 		printf("[*] Python list info\n");
 		printf("[*] Size of the Python List = %lu\n", PyList_Size(p));
 		printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
-		for (i = 0; a < PyList_Size(p); i++)
+		for (a = 0; a < PyList_Size(p); a++)
 		{
-			list = PySequence_GetItem(p, i);
-			printf("Element %lu: %s\n", i,
+			list = PySequence_GetItem(p, a);
+			printf("Element %lu: %s\n", a,
 					list->ob_type->tp_name);
 			if (strcmp(list->ob_type->tp_name, "bytes") == 0)
 				print_python_bytes(list);
