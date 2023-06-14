@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-  return[[i ** 2 for i in j] for j in matrix]
+    if matrix:
+        return [list(map(lambda b: b**2, a)) for a in matrix]
