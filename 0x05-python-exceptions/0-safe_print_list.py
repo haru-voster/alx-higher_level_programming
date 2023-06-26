@@ -6,7 +6,7 @@ def safe_print_list(my_list=[], x=0):
         try:
             print("{}".format(my_list[a]), end="")
             printed_number += 1
-        except:
+        except Error:
             continue
     print()
     return printed_number
