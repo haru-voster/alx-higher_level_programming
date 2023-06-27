@@ -1,12 +1,14 @@
 #!/usr/bin/python3
+""" Module with a class thet defines a square"""
 
 
 class Square:
-    """class defining square"""
-    def __init__(self, size=0):
-        """data initialized"""
+    """Defining a square object
+    """
+    def __init__(self, size):
+        """Initializes the size
+
+        Args:
+            param1 (int): square size
+        """
         self.__size = size
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
