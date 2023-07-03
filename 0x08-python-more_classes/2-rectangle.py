@@ -4,6 +4,14 @@
 
 
 class Rectangle:
+    """Takes in args for width and height of a rectangle, and contains methods
+    for calculation of the area or perimeter.
+
+    Args:
+        width (int): horizontal dimension of rectangle, defaults to 0
+        height (int): vertical dimension of rectangle, defaults to 0
+
+    """
     def __init__(self, width=0, height=0):
         # attribute assigment here engages setters defined below
         self.width = width
@@ -81,6 +89,17 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
+        """Returns the perimeter of a rectangle of given `width` and `height`
+
+        Attributes:
+            __width (int): horizontal dimension of rectangle
+            __height (int): vertical dimension of rectangle
+
+        Returns:
+            0 if either attribute is 0, or the perimeter: (__width * 2) +
+            (__height * 2).
+
+        """
         if self.__width is 0 or self.__height is 0:
             return 0
         else:
