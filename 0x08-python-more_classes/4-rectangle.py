@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#haru-voster
+# haru-voster
 """4 rectangle built by haroun"""
 
 
