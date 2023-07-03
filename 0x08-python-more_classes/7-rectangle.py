@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""7-rectangle, built by haroun task 7.
+"""7-rectangle, builtby harou 7.
 """
 
 
@@ -170,4 +170,4 @@ class Rectangle:
 
         """
         cls.number_of_instances -= 1
-        print('Bye rectangle...')
+        print('Bye rectangle...')...')
