@@ -1,10 +1,19 @@
 #!/usr/bin/python3
-"""3-rectangle, built by haroun task 3.
+"""3-rectangle, built for Holberton Python project 0x08 task 3.
 """
 
 
 class Rectangle:
-   
+    """Takes in args for width and height of a rectangle, and contains methods
+    for calculation of the area or perimeter.
+
+    __str__ fuctionality defined below.
+
+    Args:
+        width (int): horizontal dimension of rectangle, defaults to 0
+        height (int): vertical dimension of rectangle, defaults to 0
+
+    """
     def __init__(self, width=0, height=0):
         # attribute assigment here engages setters defined below
         self.width = width
@@ -69,7 +78,16 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-      
+        """Returns area of a rectangle of a given `width` and `height`.
+
+        Attributes:
+            __width (int): horizontal dimension of rectangle
+            __height (int): vertical dimension of rectangle
+
+        Returns:
+            Area of rectangle: __width * __height
+
+        """
         return self.__width * self.__height
 
     def perimeter(self):
