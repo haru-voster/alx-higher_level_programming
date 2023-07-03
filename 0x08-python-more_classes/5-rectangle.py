@@ -1,9 +1,19 @@
 #!/usr/bin/python3
-"""5-rectangle, built by haroun task 5.
+"""5-rectangle, built by haroun,  task 5.
 """
 
 
 class Rectangle:
+    """Takes in args for width and height of a rectangle, and contains methods
+    for calculation of the area or perimeter.
+
+    __str__, __repr__, and __del__ fuctionality defined below.
+
+    Args:
+        width (int): horizontal dimension of rectangle, defaults to 0
+        height (int): vertical dimension of rectangle, defaults to 0
+
+    """
     def __init__(self, width=0, height=0):
         # attribute assigment here engages setters defined below
         self.width = width
@@ -120,7 +130,13 @@ class Rectangle:
         return str
 
     def __str__(self):
-   
+        """Allows direct printing of instances.
+
+        Returns:
+            The output of _draw_rectangle, which creates a string
+        representation of the rectangle suitable for printing.
+
+        """
         return self._draw_rectangle()
 
     def __repr__(self):
