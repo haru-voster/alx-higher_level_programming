@@ -8,7 +8,7 @@ haru-voster
 class BaseGeometry:
     """BaseGeometry class"""
 
-    @classMethod
+    @classmethod
     def area(self):
         """method for calculatING area"""
 
