@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" number of lines """
+"""0x0B. Python - Input/Output, task 1. Number of lines """
 
 
 def number_of_lines(filename=""):
