@@ -14,7 +14,7 @@ if __name__ == "__main__":
             if len(sep) >= 2:
                 try:
                     fsize += int(sep[-1])
-                except:
+                except IndexError:
                     pass
 
                 if sep[-2] not in codes:
