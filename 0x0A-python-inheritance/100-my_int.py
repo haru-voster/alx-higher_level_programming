@@ -1,11 +1,14 @@
 #!/usr/bin/python3
-""" 0x0A. Python - Inheritance, task 12 """
+"""advanced"""
 
 
 class MyInt(int):
-      def __eq__(self, other):
-          return int(self) != int(other)
+    """Invert int operators == and !="""
 
-    def __ne__(self, other):
-       
-        return int(self) == int(other)
+    def __eq__(self, value):
+        """Override == opeartor with != behavior"""
+        return self.real != value
+
+    def __ne__(self, value):
+        """Override != operator with == behavior"""
+        return self.real == value
