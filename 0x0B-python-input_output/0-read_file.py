@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""0x0B. Python - Input/Output, task 0. Read file """
+"""prints text file"""
 
 
 def read_file(filename=""):
