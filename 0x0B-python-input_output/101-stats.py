@@ -25,14 +25,14 @@ if __name__ == "__main__":
             lnum += 1
             if lnum % 10 == 0:
                 print("File size: {}".format(fsize))
-                for s in sorted(codes):
-                    print("{}: {}".format(s, codes[s]))
+                for k in sorted(codes):
+                    print("{}: {}".format(k, codes[k]))
 
         print("File size: {}".format(fsize))
-        for s in sorted(codes):
-            print("{}: {}".format(s, codes[s]))
+        for k in sorted(codes):
+            print("{}: {}".format(k, codes[k]))
 
     except (KeyboardInterrupt, SystemExit):
         print("File size: {}".format(fsize))
-        for s in sorted(codes):
-            print("{}: {}".format(s, codes[s]))
+        for k in sorted(codes):
+            print("{}: {}".format(k, codes[k]))
