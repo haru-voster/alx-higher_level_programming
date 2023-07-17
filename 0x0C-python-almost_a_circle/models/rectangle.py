@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# haru-voster
 """Defines a rectangle class."""
 from models.base import Base
 
