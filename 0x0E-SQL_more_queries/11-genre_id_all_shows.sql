@@ -1,19 +1,7 @@
--- Lists all genres of the database hbtn_0d_tvshows
--- Records are sorted by ascending genre name.
-SELECT DISTINCT `name`
-  FROM `tv_genres` AS g
-       INNER JOIN `tv_show_genres` AS s
-       ON g.`id` = s.`genre_id`
-
-       INNER JOIN `tv_shows` AS t
-       ON s.`show_id` = t.`id`
-       WHERE g.`name` NOT IN
-             (SELECT `name`
-                FROM `tv_genres` AS g
-	             INNER JOIN `tv_show_genres` AS s
-		     ON g.`id` = s.`genre_id`
-
-		     INNER JOIN `tv_shows` AS t
-		     ON s.`show_id` = t.`id`
-		     WHERE t.`title` = "Dexter")
- ORDER BY g.`name`;
+-- Lists all shows contained in the database hbtn_0d_tvshows.
+-- Records are ordered by ascending tv_shows.title and tv_show_genres.genre_id.
+SELECT s.`title`, g.`genre_id`
+  FROM `tv_shows` AS s
+       LEFT JOIN `tv_show_genres` AS g
+       ON s.`id` = g.`show_id`
+ ORDER BY s.`title`, g.`genre_id`
