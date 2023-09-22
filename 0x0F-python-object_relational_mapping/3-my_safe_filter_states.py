@@ -1,37 +1,35 @@
 #!/usr/bin/python3
-""" This module takes an argument and displays all values states
-    database hbtn_0e_0_usa WHERE name matches the argument.
+
+"""
+    A script that lists all states from the database hbtn_0e_0_usa
+    starting with capital letter N
+    Username, password and database names are given as user args
 """
 
-import MySQLdb
+
 import sys
+import MySQLdb
 
 
-def main():
-    """
-        Function containing code to select the state provided
-        in the argument and is implemented in a safe way to prevent
-        an SQL injection.
-    """
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         host='localhost',
+                         port=3306)
 
-    # Create a database connection
-    conn = MySQLdb.connect(
-                host="localhost", port=3306, user=sys.argv[1],
-                passwd=sys.argv[2], db=sys.argv[3], charset="utf8mb4"
-            )
-    curs = conn.cursor()
-    # Select states
-    state_name = sys.argv[4]
-    curs.execute(
-            "SELECT * FROM states WHERE\
-                    name = %s ORDER BY id ASC", (state_name, ))
-    query_rows = curs.fetchall()
-    for row in query_rows:
+    cursor = db.cursor()
+
+    sql = """SELECT * FROM states
+          WHERE name = %s
+          ORDER BY id ASC"""
+
+    cursor.execute(sql, (sys.argv[4],))
+
+    data = cursor.fetchall()
+
+    for row in data:
         print(row)
-    curs.close()
-    conn.close()
 
-
-if __name__ == "__main__":
-    main()
-
+    cursor.close()
+    db.close()
