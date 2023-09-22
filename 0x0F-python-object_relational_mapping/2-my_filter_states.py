@@ -1,36 +1,35 @@
 #!/usr/bin/python3
-""" This module takes an argument and displays all values states
-    database hbtn_0e_0_usa WHERE name matches the argument.
+
+"""
+    A script that lists all states from the database hbtn_0e_0_usa
+    starting with capital letter N
+    Username, password and database names are given as user args
 """
 
-import MySQLdb
+
 import sys
+import MySQLdb
 
 
-def main():
-    """
-        Function containing code to select the state provided
-        in the argument.
-    """
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         host='localhost',
+                         port=3306)
 
-    # Create a database connection
-    conn = MySQLdb.connect(
-                host="localhost", port=3306, user=sys.argv[1],
-                passwd=sys.argv[2], db=sys.argv[3], charset="utf8mb4"
-            )
-    curs = conn.cursor()
-    # Select states
-    state_name = sys.argv[4]
-    curs.execute(
-            "SELECT * FROM states WHERE\
-                    BINARY name='{}' ORDER BY id ASC".format(state_name))
-    query_rows = curs.fetchall()
-    for rw in query_rows:
-        print(rw)
-    curs.close()
-    conn.close()
+    cursor = db.cursor()
 
+    sql = """ SELECT * FROM states
+          WHERE name LIKE BINARY '{}'
+          ORDER BY id ASC """.format(sys.argv[4])
 
-if __name__ == "__main__":
-    main()
+    cursor.execute(sql)
 
+    data = cursor.fetchall()
+
+    for row in data:
+        print(row)
+
+    cursor.close()
+    db.close()
