@@ -1,32 +1,33 @@
 #!/usr/bin/python3
-""" This module filters all the states from the
-    database hbtn_0e_0_usa that start with upper N.
+# haru-voster
+"""
+    A script that lists all states from the database hbtn_0e_0_usa
+    starting with capital letter N
+    Username, password and database names are given as user args
 """
 
-import MySQLdb
+
 import sys
+import MySQLdb
 
 
-def main():
-    """
-        Function containing code to filter all the states
-        from the database.
-    """
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         host='localhost',
+                         port=3306)
 
-    # Create a database connection
-    conn = MySQLdb.connect(
-                host="localhost", port=3306, user=sys.argv[1],
-                passwd=sys.argv[2], db=sys.argv[3], charset="utf8mb4"
-            )
-    curs = conn.cursor()
-    # Select states
-    curs.execute("SELECT * FROM states ORDER BY id ASC")
-    query_rows = curs.fetchall()
-    [print(state) for state in query_rows if state[1][0] == "N"]
-    curs.close()
-    conn.close()
+    cursor = db.cursor()
 
+    cursor.execute("SELECT * FROM states\
+                    WHERE name LIKE BINARY 'N%'\
+                    ORDER BY id ASC")
 
-if __name__ == "__main__":
-    main()
+    data = cursor.fetchall()
 
+    for row in data:
+        print(row)
+
+    cursor.close()
+    db.close()
