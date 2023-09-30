@@ -10,4 +10,4 @@ if __name__ == "__main__":
     url = argv[1]
 
     with req.urlopen(url) as response:
-        print(dict(response.headers).get("X-Request-Id"
+        print(dict(response.headers).get("X-Request-Id"))
