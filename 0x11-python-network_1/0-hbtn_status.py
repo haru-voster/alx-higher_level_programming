@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # haru-voster
-""" fetches https://alx-intranet.hbtn.io/status """
+""" fetches https://alx-intranet.hbtn.io/status
+"""
 import urllib.request as req
 
 if __name__ == "__main__":
