@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/python3
 # haru-voster
 """ Sends request to URL provided as command and display the
     value of the X-Request-Id 
