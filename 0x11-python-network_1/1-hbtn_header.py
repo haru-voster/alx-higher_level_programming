@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-# haru-voster
 """ Sends request to URL provided as command and display the
-    value of the X-Request-Id 
+    value of the X-Request-Id found in the header of the response
 """
 from sys import argv
 import urllib.request as req
