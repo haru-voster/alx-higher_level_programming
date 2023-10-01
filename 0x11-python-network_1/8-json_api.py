@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Sends a POST request to http://0.0.0.0:5000 """
 
 import requests
 from sys import argv
