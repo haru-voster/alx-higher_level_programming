@@ -1,16 +1,19 @@
 #!/usr/bin/node
 //haru-voster
 
+#!/usr/bin/node
+
 const request = require('request');
-const movieId = process.argv[2];
-const baseUrl = 'https://swapi-api.alx-tools.com/api/films/';
-const fullUrl = baseUrl.concat(movieId);
+const episodeNum = process.argv[2];
+const API_URL = 'https://swapi-api.hbtn.io/api/films/';
 
-request(fullUrl, (error, response, body) => {
-  if (error) {
-    console.error(error);
+request(API_URL + episodeNum, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const responseJSON = JSON.parse(body);
+    console.log(responseJSON.title);
+  } else {
+    console.log('Error code: ' + response.statusCode);
   }
-  const data = JSON.parse(body);
-  console.log(data.title);
 });
-
