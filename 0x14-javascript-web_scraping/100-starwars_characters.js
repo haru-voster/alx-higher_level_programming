@@ -1,22 +1,28 @@
 #!/usr/bin/node
 //100-starwars_characters.js 
+#!/usr/bin/node
 
-const req = require('request');
-const id = process.argv[2];
-const url = 'https://swapi-api.hbtn.io/api/films/';
-req.get(url + id, function (error, res, body) {
+const request = require('request');
+
+const movieId = process.argv[2];
+const url = `https://swapi.dev/api/films/${movieId}/`;
+
+request.get(url, (error, response, body) => {
   if (error) {
     console.log(error);
+    return;
   }
+
   const data = JSON.parse(body);
-  const dd = data.characters;
-  for (const i of dd) {
-    req.get(i, function (error, res, body1) {
+  const characters = data.characters;
+  for (const character of characters) {
+    request(character, (error, response, body) => {
       if (error) {
         console.log(error);
+        return;
       }
-      const data1 = JSON.parse(body1);
-      console.log(data1.name);
+      const characterData = JSON.parse(body);
+      console.log(characterData.name);
     });
   }
 });
