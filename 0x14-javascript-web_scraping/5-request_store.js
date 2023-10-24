@@ -1,19 +1,10 @@
 #!/usr/bin/node
-const r = require('r');
+//haru-voster
 const request = require('request');
+const fs = require('fs');
 
-const url = process.argv[2];
-const fileName = process.argv[3];
-
-request(url, (error, response, body) => {
-  if (error) {
-    console.error(error);
+request(process.argv[2], function (err, response, body) {
+  if (err == null) {
+    fs.writeFileSync(process.argv[3], body);
   }
-  const data = body;
-
-  r.writeFile(fileName, data, 'utf-8', (err) => {
-    if (err) {
-      console.log(err);
-    }
-  });
 });
